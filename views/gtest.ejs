@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%- include ('partials/links.ejs') -%>
-  <title>Book DriveTest - G Test</title>
-</head>
-<body>
-  <%- include ('partials/header.ejs') -%>
-  <h1>Welcome to G Test Page!</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include ('partials/links.ejs') -%>
+    <title>Book DriveTest - G Test</title>
+  </head>
+  <body class="bg-gray-custom">
+    <%- include ('partials/header.ejs') -%>
+    <main>
+      <div class="container-fluid bg-light col-lg-4 py-4 g-container">
+        <h2 class="text-center">G Test</h2>
+        <form>
+          <div class="mb-3">
+            <label for="licenseNumber" class="form-label">License Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="licenseNumber"
+              placeholder="Enter your license number here..."
+            />
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <%- include ('partials/footer.ejs') -%>
+    <%- include ('partials/scripts.ejs') -%>
+  </body>
 </html>

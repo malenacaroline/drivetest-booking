@@ -1,16 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
-  padding: 0;
   margin: 0;
 }
 
+main {
+  padding: 0 24px;
+}
+
+.bg-gray-custom {
+  background-color: #464d53;
+}
+
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 24px;
-  background-color: #464D53;
-  color: #ffffff;
+  padding: 24px 24px 0 24px;
+  background-color: #464d53;
+}
+
+.header > nav {
+  background-color: #464d53 !important;
 }
 
 .header > h2 {
@@ -28,11 +36,136 @@ ul > li {
 }
 
 ul > li > a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
-h1 {
-  margin: 24px;
+.navbar-brand {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+}
+
+.banner {
+  width: 100%;
+  margin: 0 auto;
+  height: 40vh;
+  background-color: #464d53;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-title {
+  font-size: 7rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.banner-text {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.dashboard-section {
+  background-color: #fff;
+  width: 100%;
+  height: 50vh;
+  text-align: center;
+  padding: 42px;
+}
+
+.dashboard-section h2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.dashboard-section p {
+  font-size: 32px !important;
+}
+
+.dashboard-section em {
+  color: #797b7d;
+}
+
+.dashboard-section strong {
+  font-weight: 500;
+  color: #464d53;
+}
+
+.login-container {
+  margin: 20vh auto auto;
+}
+
+.g2-container {
+  margin: 10vh auto auto;
+}
+
+.g-container {
+  margin: 20vh auto auto;
+}
+
+footer {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  background-color: #464d53;
+  color: #fff;
+  margin-top: 30px;
+}
+
+/* mobile screen styles */
+@media screen and (max-width: 760px) {
+  main {
+    padding: 0 12px;
+  }
+
+  .header {
+    padding: 8px 0 0 0;
+  }
+
+  .navbar-brand {
+    font-size: 24px !important;
+  }
+
+  .banner-title {
+    font-size: 4rem;
+  }
+
+  .banner-text {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-section h2 {
+    font-size: 40px;
+  }
+
+  .dashboard-section p {
+    font-size: 24px !important;
+  }
+
+  footer {
+    padding: 12px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navbar-brand {
+    font-size: 20px !important;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+  }
+
+  .dashboard-section h2 {
+    font-size: 24px;
+  }
+
+  .dashboard-section p {
+    font-size: 16px !important;
+  }
 }

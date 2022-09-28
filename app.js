@@ -1,7 +1,7 @@
-// Made by Malena Caroline de Moraes Assuncao - 8793442
-// To run the application do the following steps:
+// Made by Malena Caroline de Moraes Assuncao Aguiar - 8793442
+// To run the application follow the steps:
 // 1. npm install
-// 2. npm start or npm run start
+// 2. npm run server
 
 const router = require("./routes/route.js");
 const express = require("express");
