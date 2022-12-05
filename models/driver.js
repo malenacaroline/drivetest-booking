@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const driverSchema = mongoose.Schema({
   firstName: String,
   lastName: String,
-  licenseNumber: Number,
+  licenseNumber: String,
   age: Number,
   dob: String,
   username: String,

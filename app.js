@@ -20,6 +20,9 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 100,
+    },
   })
 );
 
@@ -83,27 +86,29 @@ app.post("/adddriver", (req, res) => {
   );
 });
 
-app.get("/getdriver", (req, res) => {
-  const licenseNumber = req.query.licenseNumber;
-  if (licenseNumber) {
-    driverModel.find({ licenseNumber }, (error, driverFound) => {
-      if (error) {
-        console.log("Driver not found. Error: " + error);
-      } else {
-        console.log("Driver found successfully as: " + driverFound);
-        res.render("gtest.ejs", {
-          driver: driverFound,
-        });
-      }
-    });
-  } else {
-    res.redirect("/gtest");
-  }
-});
+// app.get("/getdriver", (req, res) => {
+//   const licenseNumber = req.query.licenseNumber;
+//   if (licenseNumber) {
+//     driverModel.find({ licenseNumber }, (error, driverFound) => {
+//       if (error) {
+//         console.log("Driver not found. Error: " + error);
+//       } else {
+//         console.log("Driver found successfully as: " + driverFound);
+//         res.render("gtest.ejs", {
+//           driver: driverFound,
+//         });
+//       }
+//     });
+//   } else {
+//     res.redirect("/gtest");
+//   }
+// });
 
 app.post("/update", (req, res) => {
   const upd_driver = req.body;
   const licenseNumber = upd_driver.licenseNumber;
+  console.log(upd_driver);
+  console.log(licenseNumber);
 
   driverModel.findOneAndUpdate(
     { licenseNumber },
@@ -125,6 +130,7 @@ app.post("/update", (req, res) => {
         console.log("Driver not updated. Error: " + error);
       } else {
         console.log("Driver updated successfully as: " + updatedDriver);
+        global.user = updatedDriver;
         res.redirect("/gtest");
       }
     }
@@ -136,19 +142,19 @@ app.post("/adduser", (req, res) => {
 
   driverModel.create(
     {
-      firstName: "",
-      lastName: "",
-      licenseNumber: "",
-      age: null,
-      dob: "",
+      firstName: "default",
+      lastName: "default",
+      licenseNumber: "default",
+      age: 0,
+      dob: "default",
       username: ins_user.s_username,
       password: ins_user.s_password,
       userType: ins_user.s_user_type,
       car_details: {
-        iemake: "",
-        model: "",
-        year: null,
-        plate: "",
+        iemake: "default",
+        model: "default",
+        year: 0,
+        plate: "default",
       },
     },
     (error, userCreated) => {
@@ -163,8 +169,9 @@ app.post("/adduser", (req, res) => {
 });
 
 app.post("/updateuser", (req, res) => {
+  console.log("hey update useeer");
   const upd_user = req.body;
-  const username = upd_user.username;
+  const username = global.user.username;
 
   driverModel.findOneAndUpdate(
     { username },
@@ -181,11 +188,12 @@ app.post("/updateuser", (req, res) => {
         plate: upd_user.plate,
       },
     },
-    (error, updatedDriver) => {
+    (error, updatedUser) => {
       if (error) {
-        console.log("Driver not updated. Error: " + error);
+        console.log("User not updated. Error: " + error);
       } else {
-        console.log("Driver updated successfully as: " + updatedDriver);
+        global.user = updatedUser;
+        console.log("User updated successfully as: " + updatedUser);
         res.redirect("/gtest");
       }
     }
