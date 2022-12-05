@@ -13,45 +13,45 @@
       <div class="container-fluid bg-light col-lg-6 py-4 g2-container">
         <h2 class="text-center">G2 Test</h2>
         <h5>Personal Information</h5>
-        <form>
+        <form  method="post" action="/adddriver">
           <div class="mb-3">
             <label for="fName" class="form-label font-weight-bold"
               >First Name</label
             >
-            <input type="text" class="form-control" id="fName" />
+            <input type="text" class="form-control" id="fName" name="fName" required/>
           </div>
           <div class="mb-3">
             <label for="lName" class="form-label font-weight-bold"
               >Last Name</label
             >
-            <input type="text" class="form-control" id="lName" />
+            <input type="text" class="form-control" id="lName" name="lName" required/>
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="licenseNumber"
+            <span class="input-group-text"
               >License Number</span
             >
-            <input type="text" class="form-control me-2" id="licenseNumber" />
-            <span class="input-group-text" id="age">Age</span>
-            <input type="text" class="form-control" id="age" />
+            <input type="text" class="form-control me-2" id="licenseNumber" name="licenseNumber" required/>
+            <span class="input-group-text">Age</span>
+            <input type="text" class="form-control" id="age"  name="age" required/>
           </div>
           <div class="mb-3">
             <label for="dob" class="form-label font-weight-bold">DOB</label>
-            <input type="text" class="form-control" id="dob" />
+            <input type="text" class="form-control" id="dob" name="dob" required/>
           </div>
-          <h5>Car Information</h5>
+          <h5>Car Details</h5>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="iemake">IE Make</span>
-            <input type="text" class="form-control me-2" id="iemake" />
+            <span class="input-group-text">IE Make</span>
+            <input type="text" class="form-control me-2" id="iemake" name="iemake" required/>
             <span class="input-group-text" id="model">Model</span>
-            <input type="text" class="form-control" id="model" />
+            <input type="text" class="form-control" id="model"  name="model"/>
           </div>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="year">Year</span>
-            <input type="text" class="form-control me-2" id="year" />
-            <span class="input-group-text" id="plate">Plate Number</span>
-            <input type="text" class="form-control" id="plate" />
+            <span class="input-group-text">Year</span>
+            <input type="text" class="form-control me-2" id="year"  name="year" required/>
+            <span class="input-group-text">Plate Number</span>
+            <input type="text" class="form-control" id="plate" name="plate" required/>
           </div>
-          <div class="d-grid gap-2">
+          <div class="d-grid gap-2 col-6 mx-auto">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>

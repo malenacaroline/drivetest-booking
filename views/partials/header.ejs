@@ -25,7 +25,12 @@
             <a class="nav-link text-white" href="/gtest">G_TEST</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/login">LOGIN</a>
+            <% if(!loggedIn) { %>
+              <a class="nav-link text-white" href="/login">LOGIN</a>
+            <% } %>
+            <% if(loggedIn) { %>
+              <a class="nav-link text-white" href="/auth/logout">LOGOUT</a>
+            <% } %>
           </li>
         </ul>
       </div>

@@ -13,42 +13,20 @@
       <div
         class="container-fluid bg-light col-lg-4 col-md-10 py-4 login-container"
       >
-        <h2 class="text-center">Login</h2>
-        <form>
-          <div class="mb-3">
-            <label for="email" class="form-label font-weight-bold"
-              >Email address</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              aria-describedby="emailHelp"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label font-weight-bold"
-              >Password</label
-            >
-            <input type="password" class="form-control" id="password" />
-          </div>
-          <div class="mb-3 form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-            />
-            <label class="form-check-label" for="exampleCheck1"
-              >Remember me</label
-            >
-          </div>
-          <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
+        <h2 class="text-center">Login/Sign Up</h2>
+        <div class="d-flex justify-content-center mt-4">
+          <button type="button" id="btn_login" class="btn btn-primary me-3 btn-login-signup">
+            Login
+          </button>
+          <button type="button" id="btn_signUp" class="btn btn-primary btn-login-signup">
+            Sign up
+          </button>
+        </div>
+        <%- include ('partials/login.ejs') -%> <%- include
+        ('partials/signup.ejs') -%>
       </div>
     </main>
-    <%- include ('partials/footer.ejs') -%>
-    <%- include ('partials/scripts.ejs') -%>
+    <%- include ('partials/footer.ejs') -%> <%- include ('partials/scripts.ejs')
+    -%>
   </body>
 </html>

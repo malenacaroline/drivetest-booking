@@ -107,6 +107,10 @@ ul > li > a {
   margin: 20vh auto auto;
 }
 
+.btn-login-signup {
+  background-color: #073763 !important;
+}
+
 footer {
   padding: 24px;
   display: flex;

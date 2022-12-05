@@ -1,0 +1,41 @@
+<form id="form_signUp" method="post" action="\adduser">
+  <div class="mb-3">
+    <label for="sign_username" class="form-label font-weight-bold"
+      >Username</label
+    >
+    <input
+      class="form-control"
+      id="sign_username"
+      aria-describedby="emailHelp"
+      name="s_username"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="sign_password" class="form-label font-weight-bold"
+      >Password</label
+    >
+    <input type="password" class="form-control" id="sign_password" name="s_password"/>
+  </div>
+  <div class="mb-3">
+    <label for="rep_password" class="form-label font-weight-bold"
+      >Repeat Password</label
+    >
+    <input type="password" class="form-control" id="rep_password" />
+  </div>
+  <div class="mb-3">
+    <label for="user_type" class="form-label font-weight-bold">User Type</label>
+    <select
+      id="user_type"
+      class="form-select"
+      aria-label="Default select example"
+      name="s_user_type"
+    >
+      <option value="driver" selected>Driver</option>
+      <option value="examiner">Examiner</option>
+      <option value="admin">Admin</option>
+    </select>
+  </div>
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
