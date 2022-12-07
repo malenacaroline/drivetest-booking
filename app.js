@@ -86,29 +86,9 @@ app.post("/adddriver", (req, res) => {
   );
 });
 
-// app.get("/getdriver", (req, res) => {
-//   const licenseNumber = req.query.licenseNumber;
-//   if (licenseNumber) {
-//     driverModel.find({ licenseNumber }, (error, driverFound) => {
-//       if (error) {
-//         console.log("Driver not found. Error: " + error);
-//       } else {
-//         console.log("Driver found successfully as: " + driverFound);
-//         res.render("gtest.ejs", {
-//           driver: driverFound,
-//         });
-//       }
-//     });
-//   } else {
-//     res.redirect("/gtest");
-//   }
-// });
-
 app.post("/update", (req, res) => {
   const upd_driver = req.body;
   const licenseNumber = upd_driver.licenseNumber;
-  console.log(upd_driver);
-  console.log(licenseNumber);
 
   driverModel.findOneAndUpdate(
     { licenseNumber },
@@ -130,8 +110,7 @@ app.post("/update", (req, res) => {
         console.log("Driver not updated. Error: " + error);
       } else {
         console.log("Driver updated successfully as: " + updatedDriver);
-        global.user = updatedDriver;
-        res.redirect("/gtest");
+        res.redirect("/getinfo");
       }
     }
   );
@@ -169,7 +148,6 @@ app.post("/adduser", (req, res) => {
 });
 
 app.post("/updateuser", (req, res) => {
-  console.log("hey update useeer");
   const upd_user = req.body;
   const username = global.user.username;
 
@@ -192,9 +170,8 @@ app.post("/updateuser", (req, res) => {
       if (error) {
         console.log("User not updated. Error: " + error);
       } else {
-        global.user = updatedUser;
         console.log("User updated successfully as: " + updatedUser);
-        res.redirect("/gtest");
+        res.redirect("/getinfo");
       }
     }
   );
@@ -209,8 +186,6 @@ app.post("/getuser", (req, res) => {
           req.session.userId = user._id;
           global.user = user;
           loggedIn = req.session.userId;
-
-          console.log(req.session.userId);
           res.redirect("/");
         } else {
           res.render("login.ejs", {
@@ -227,3 +202,17 @@ app.post("/getuser", (req, res) => {
 });
 
 app.get("/auth/logout", logoutController);
+
+app.get("/getinfo", (req, res) => {
+  const username = global.user.username;
+  driverModel.findOne({ username: username }, (error, user) => {
+    if (user) {
+      console.log("User found successfully as: " + user);
+      global.user = user;
+      res.redirect("/gtest");
+    } else {
+      console.log("User not found. Error: " + error);
+      res.redirect("/login");
+    }
+  });
+});

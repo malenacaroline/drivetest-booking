@@ -1,4 +1,5 @@
 <form id="form_login" action="\getuser" method="post">
+  <h4>LOGIN</h4>
   <div class="mb-3">
     <label for="email" class="form-label font-weight-bold">Username</label>
     <input
@@ -20,13 +21,18 @@
     />
   </div>
   <% if(locals.userNotFound) { %>
-  <div class="mb-3 text-danger">
-    <span
-      >Sorry, user not found! Click on Sign Up to register.</span
-    >
+  <div class="d-flex justify-content-center mb-3 text-danger">
+    <p>Sorry, user not found! <strong>Sign Up</strong> to register a user.</p>
   </div>
   <% } %>
   <div class="d-grid gap-2">
-    <button type="submit" class="btn btn-primary">Enter</button>
+    <button type="submit" class="btn btn-primary">LOGIN</button>
+  </div>
+  <div class="d-flex justify-content-center mt-4">
+    <p>
+      If you do not have a login,
+      <a class="link-primary" id="btn_signUp"><strong>Sign up here</strong></a
+      >.
+    </p>
   </div>
 </form>

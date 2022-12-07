@@ -108,7 +108,8 @@ ul > li > a {
 }
 
 .btn-login-signup {
-  background-color: #073763 !important;
+  background-color: #631507 !important;
+  border: 0 !important;
 }
 
 footer {
